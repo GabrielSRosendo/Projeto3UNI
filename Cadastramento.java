@@ -67,7 +67,7 @@ public class Cadastramento {
 
                         System.out.print("Digite a idade do Estudante: ");
                         int idade = scanner.nextInt();
-                        scanner.nextLine();
+
 
                         System.out.print("Digite o sexo do Estudante (M=Masculino/F=Feminino/N=Não Binario");
                         char genero = scanner.nextLine().charAt(0);
@@ -101,7 +101,6 @@ public class Cadastramento {
                     case 2:
                         System.out.print("Digite a matricula correspondente: ");
                         int mat = scanner.nextInt();
-                        scanner.nextLine();
                         System.out.println(service.buscarPorMatricula(mat));
                         break;
                     case 3:
@@ -134,8 +133,10 @@ public class Cadastramento {
                     default:
                         System.out.println("Perdão mas o que você tentou executar foi invalido.");
                 }
-            } catch (Exception e) {
-                System.out.println("Erro detectado: " + e.getMessage());
+            } catch (AlunoInvalidoException e) {
+                System.out.println("Perdão ocorreu um erro: " + e.getMessage());
+            } catch (CpfInvalidoException | MatriculaInvalidaEception e) {
+                throw new RuntimeException(e);
             }
         } while (opcao != 6);
         scanner.close();
