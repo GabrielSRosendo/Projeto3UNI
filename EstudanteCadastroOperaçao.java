@@ -50,7 +50,7 @@ public class EstudanteCadastroOperaçao implements CadastroEstudanteCarteira {
                         estudante.getCardiopata(),
                         estudante.getCidade(),
                         estudante.getCurso()
-                        ));
+                ));
                 writer.newLine();
             }
         } catch (IOException e) {
@@ -70,7 +70,7 @@ public class EstudanteCadastroOperaçao implements CadastroEstudanteCarteira {
                         dados[2].charAt(0),
                         dados[3],
                         Integer.parseInt(dados[4]),
-                        Integer.parseInt(dados[5]),
+                        Long.parseLong(dados[5]),
                         dados[6],
                         dados[7],
                         dados[8],
