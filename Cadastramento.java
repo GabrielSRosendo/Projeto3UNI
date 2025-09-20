@@ -47,42 +47,52 @@ public class Cadastramento {
         int opcao;
         do {
             System.out.println("\n--- Menu do Sistema ---");
-            System.out.println("Para cadastrar um Estudante aperte 1");
-            System.out.println("Para buscar por uma Matricula aperte 2");
-            System.out.println("Para buscar por um Cpf aperte 3");
-            System.out.println("Se deseja remover um estudante aperte 4");
-            System.out.println("Se deseja ver a lista dos Estudantes cadastrados aperte 5");
-            System.out.println("Se deseja sair e salvar do sistema aperte 6");
-            System.out.println("Se deseja salvar os dados manualmente aperte 7");
-            System.out.println("Se deseja carregar os dados manualmente");
+            System.out.println("Para cadastrar um Estudante aperte: 1");
+            System.out.println("Para buscar por uma Matricula aperte: 2");
+            System.out.println("Para buscar por um Cpf aperte: 3");
+            System.out.println("Se deseja remover um estudante aperte: 4");
+            System.out.println("Se deseja ver a lista dos Estudantes cadastrados aperte: 5");
+            System.out.println("Se deseja sair e salvar do sistema aperte: 6");
+            System.out.println("Se deseja salvar os dados manualmente aperte: 7");
+            System.out.println("Se deseja carregar os dados manualmente aperte: 8");
             System.out.println("Qual deseja escolher? ");
             opcao = scanner.nextInt();
 
             try {
                 switch (opcao) {
                     case 1:
-                        System.out.println("Digite o nome do estudante: ");
+                        Scanner.nextLine();
+                        System.out.print("Digite o nome do estudante: ");
                         String nome = scanner.nextLine();
-                        System.out.println("Digite a idade do Estudante: ");
+
+                        System.out.print("Digite a idade do Estudante: ");
                         int idade = scanner.nextInt();
                         scanner.nextLine();
-                        System.out.println("Digite o sexo do Estudante (M=Masculino/F=Feminino/N=Não Binario");
+
+                        System.out.print("Digite o sexo do Estudante (M=Masculino/F=Feminino/N=Não Binario");
                         char genero = scanner.nextLine().charAt(0);
-                        System.out.println("Digite o Cpf do Estudante: ");
+
+                        System.out.print("Digite o Cpf do Estudante: ");
                         String cpf = scanner.nextLine();
-                        System.out.println("Digite a data de nascimento do Estudante: (ano/mês/dia");
+
+                        System.out.print("Digite a data de nascimento do Estudante: (ano/mês/dia");
                         int data = scanner.nextInt();
                         scanner.nextLine();
-                        System.out.println("Digite a Matricula do Estudante: ");
+
+                        System.out.print("Digite a Matricula do Estudante: ");
                         int matricula = scanner.nextInt();
                         scanner.nextLine();
-                        System.out.println("Digite se o Estudante possui alergias: ");
+
+                        System.out.print("Digite se o Estudante possui alergias: ");
                         String alergico = scanner.nextLine();
-                        System.out.println("Digite se o Estudante possui Cardiopatia(Prolemas ou doenças do coração): ");
+
+                        System.out.print("Digite se o Estudante possui Cardiopatia(Prolemas ou doenças do coração): ");
                         String cardiopata = scanner.nextLine();
-                        System.out.println("Digite o nome da cidade do Estudante: ");
+
+                        System.out.print("Digite o nome da cidade do Estudante: ");
                         String cidade = scanner.nextLine();
-                        System.out.println("Digite o curso do Estudante: ");
+
+                        System.out.print("Digite o curso do Estudante: ");
                         String curso = scanner.nextLine();
 
                         Estudante estudante = new Estudante(nome, idade, genero, cpf, data, matricula, alergico, cardiopata, cidade, curso);
