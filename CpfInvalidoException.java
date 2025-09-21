@@ -6,3 +6,4 @@ public class CpfInvalidoException extends Exception {
 
     public CpfInvalidoException(){this("Perdão, mas o Cpf foi inválido");}
 }
+
