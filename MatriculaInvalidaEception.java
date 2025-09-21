@@ -6,3 +6,4 @@ public class MatriculaInvalidaEception extends Exception {
     }
     public MatriculaInvalidaEception(){this("Perdão, mas a matricula aparenta ser inválida");}
 }
+
