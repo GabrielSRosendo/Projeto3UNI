@@ -6,13 +6,13 @@ public class Estudante {
     private char genero;
     private String cpf;
     private int datanascimento;
-    private int matricula;
+    private long matricula;
     private String alergico;
     private String cardiopata;
     private String cidade;
     private String curso;
 
-    public Estudante(String nome, int idade, char genero, String cpf, int datanascimento, int matricula,
+    public Estudante(String nome, int idade, char genero, String cpf, int datanascimento, long matricula,
                      String alergico, String cardiopata, String cidade, String curso) {
         this.nome = nome;
         this.idade = idade;
@@ -42,8 +42,8 @@ public class Estudante {
     public void setCpf(String cpf) { this.cpf = cpf;}
     public int getDatanascimento() { return datanascimento;}
     public void setDatanascimento(int datanascimento) { this.datanascimento = datanascimento; }
-    public int getMatricula() { return matricula; }
-    public void setMatricula(int matricula) { this.matricula = matricula; }
+    public long getMatricula() { return matricula; }
+    public void setMatricula(long matricula) { this.matricula = matricula; }
     public String getAlergico() { return alergico;}
     public void setAlergico(String alergico) { this.alergico = alergico; }
     public String getCardiopata() { return cardiopata; }
@@ -53,3 +53,4 @@ public class Estudante {
     public String getCurso() { return curso; }
     public void setCurso(String curso) { this.curso = curso; }
 }
+
