@@ -6,42 +6,7 @@ import java.util.Scanner;
 public class Cadastramento {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        CadastroEstudanteCarteira service = new CadastroEstudanteCarteira() {
-            @Override
-            public void cadastrar(Estudante estudante) {
-
-            }
-
-            @Override
-            public Estudante buscarPorMatricula(int matricula) throws MatriculaInvalidaEception {
-                return null;
-            }
-
-            @Override
-            public Estudante buscarPorCpf(String cpf) throws CpfInvalidoException {
-                return null;
-            }
-
-            @Override
-            public boolean remover(String cpf) throws CpfInvalidoException {
-                return false;
-            }
-
-            @Override
-            public List<Estudante> listarTodos() {
-                return List.of();
-            }
-
-            @Override
-            public void salvarDados() {
-
-            }
-
-            @Override
-            public void carregarDados() {
-
-            }
-        };
+        CadastroEstudanteCarteira service = new EstudanteCadastroOperaçao();
         service.carregarDados();
 
         int opcao;
@@ -61,16 +26,18 @@ public class Cadastramento {
             try {
                 switch (opcao) {
                     case 1:
-                        Scanner.nextLine();
+                        scanner.nextLine();
                         System.out.print("Digite o nome do estudante: ");
                         String nome = scanner.nextLine();
 
                         System.out.print("Digite a idade do Estudante: ");
                         int idade = scanner.nextInt();
+                        scanner.nextLine();
 
 
                         System.out.print("Digite o sexo do Estudante (M=Masculino/F=Feminino/N=Não Binario");
                         char genero = scanner.nextLine().charAt(0);
+
 
                         System.out.print("Digite o Cpf do Estudante: ");
                         String cpf = scanner.nextLine();
@@ -78,6 +45,7 @@ public class Cadastramento {
                         System.out.print("Digite a data de nascimento do Estudante: (ano/mês/dia");
                         int data = scanner.nextInt();
                         scanner.nextLine();
+
 
                         System.out.print("Digite a Matricula do Estudante: ");
                         int matricula = scanner.nextInt();
@@ -104,11 +72,13 @@ public class Cadastramento {
                         System.out.println(service.buscarPorMatricula(mat));
                         break;
                     case 3:
+                        scanner.nextLine();
                         System.out.print("Digite o CPF correspondente: ");
                         String cpfBusca = scanner.nextLine();
                         System.out.println(service.buscarPorCpf(cpfBusca));
                         break;
                     case 4:
+                        scanner.nextLine();
                         System.out.print("Para remover o Estudante digite o CPF do mesmo: ");
                         String cpfRemover = scanner.nextLine();
                         if (service.remover(cpfRemover)) {
@@ -116,17 +86,21 @@ public class Cadastramento {
                         }
                         break;
                     case 5:
+                        scanner.nextLine();
                         service.listarTodos().forEach(System.out::println);
                         break;
                     case 6:
+                        scanner.nextLine();
                         service.salvarDados();
                         System.out.println("Salvando os dados e Saindo do sistema");
                         break;
                     case 7:
+                        scanner.nextLine();
                         service.salvarDados();
                         System.out.println("Os dados foram salvos manualmente");
                         break;
                     case 8:
+                        scanner.nextLine();
                         service.carregarDados();
                         System.out.println("Os dados foram carregados manualmente");
                         break;
