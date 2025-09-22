@@ -42,13 +42,13 @@ public class Cadastramento {
                         System.out.print("Digite o Cpf do Estudante: ");
                         String cpf = scanner.nextLine();
 
-                        System.out.print("Digite a data de nascimento do Estudante: (ano/mês/dia");
+                        System.out.print("Digite a data de nascimento do Estudante (dia/mês/ano) :");
                         int data = scanner.nextInt();
                         scanner.nextLine();
 
 
                         System.out.print("Digite a Matricula do Estudante: ");
-                        int matricula = scanner.nextInt();
+                        long matricula = scanner.nextLong();
                         scanner.nextLine();
 
                         System.out.print("Digite se o Estudante possui alergias: ");
@@ -68,7 +68,7 @@ public class Cadastramento {
                         break;
                     case 2:
                         System.out.print("Digite a matricula correspondente: ");
-                        int mat = scanner.nextInt();
+                        long mat = scanner.nextLong();
                         System.out.println(service.buscarPorMatricula(mat));
                         break;
                     case 3:
