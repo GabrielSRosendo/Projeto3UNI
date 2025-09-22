@@ -13,7 +13,7 @@ public class EstudanteCadastroOperaçao implements CadastroEstudanteCarteira {
         estudantes.add(estudante);
     }
     @Override
-    public Estudante buscarPorMatricula(int matricula) throws MatriculaInvalidaEception {
+    public Estudante buscarPorMatricula(long matricula) throws MatriculaInvalidaEception {
         return estudantes.stream()
                 .filter(a -> a.getMatricula() == matricula)
                 .findFirst()
@@ -64,7 +64,7 @@ public class EstudanteCadastroOperaçao implements CadastroEstudanteCarteira {
             String linha;
             while ((linha = reader.readLine()) != null) {
                 String[] dados = linha.split(";");
-                Estudante estudante = new Estudante(
+                Estudante estudante = new Estudante (
                         dados[0],
                         Integer.parseInt(dados[1]),
                         dados[2].charAt(0),
