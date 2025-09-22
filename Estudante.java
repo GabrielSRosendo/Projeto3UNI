@@ -27,9 +27,15 @@ public class Estudante {
     }
     @Override
     public String toString() {
-        return "Estudante{" + "nome=' " + nome + " ', idade=" + idade + ", genero=" + genero +
-                ", cpf=" + cpf + ", datanascimento=" + datanascimento + ", matricula=" + matricula +
-                ", alergico=' " + alergico + "', cardiopata='" + cardiopata + "', cidade='" + cidade +
+        return "Estudante{" + "nome=' " + nome +
+                " ', idade=" + idade +
+                ", genero=" + genero +
+                ", cpf=" + cpf +
+                ", datanascimento=" + datanascimento +
+                ", matricula=" + matricula +
+                ", alergico=' " + alergico +
+                "', cardiopata='" + cardiopata +
+                "', cidade='" + cidade +
                 "', curso='" + curso + "'}";
     }
     public String getNome() { return nome; }
@@ -52,4 +58,14 @@ public class Estudante {
     public void setCidade(String cidade) { this.cidade = cidade;}
     public String getCurso() { return curso; }
     public void setCurso(String curso) { this.curso = curso; }
+
+    public boolean equals(Estudante e) {
+        if ((e instanceof  Estudante) && ((Estudante) e).getNome().equals(this.getNome())) {
+            return true;
+        } else
+            return false;
+    }
+    public int hashCode() {
+        return getNome().length();
+    }
 }
