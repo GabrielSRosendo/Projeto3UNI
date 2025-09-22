@@ -27,7 +27,7 @@ public class Estudante {
     }
     @Override
     public String toString() {
-        return "Estudante{" + "nome= ' " + nome + " ', idade=" + idade + ", genero=" + genero +
+        return "Estudante{" + "nome=' " + nome + " ', idade=" + idade + ", genero=" + genero +
                 ", cpf=" + cpf + ", datanascimento=" + datanascimento + ", matricula=" + matricula +
                 ", alergico=' " + alergico + "', cardiopata='" + cardiopata + "', cidade='" + cidade +
                 "', curso='" + curso + "'}";
@@ -53,4 +53,3 @@ public class Estudante {
     public String getCurso() { return curso; }
     public void setCurso(String curso) { this.curso = curso; }
 }
-
