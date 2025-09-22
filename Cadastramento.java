@@ -7,6 +7,7 @@ public class Cadastramento {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         CadastroEstudanteCarteira service = new EstudanteCadastroOperaçao();
+        service.salvarDados();
         service.carregarDados();
 
         int opcao;
@@ -116,3 +117,4 @@ public class Cadastramento {
         scanner.close();
     }
 }
+
