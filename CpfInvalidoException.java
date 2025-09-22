@@ -4,6 +4,5 @@ public class CpfInvalidoException extends Exception {
     public CpfInvalidoException(String message) {
         super(message);};
 
-    public CpfInvalidoException(){this("Perdão, mas o Cpf foi inválido");}
+    public CpfInvalidoException(){this("Perdão, mas o Cpf foi inválido, ou não encontrado");}
 }
-
