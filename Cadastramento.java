@@ -1,120 +1,84 @@
 package Projeto.gabriel.silva;
 
-import java.util.List;
-import java.util.Scanner;
+public class Estudante {
+    private String nome;
+    private int idade;
+    private char genero;
+    private String cpf;
+    private int datanascimento;
+    private long matricula;
+    private String alergico;
+    private String cardiopata;
+    private String cidade;
+    private String curso;
 
-public class Cadastramento {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        CadastroEstudanteCarteira service = new EstudanteCadastroOperaçao();
-        service.salvarDados();
-        service.carregarDados();
+    public Estudante(String nome, int idade, char genero, String cpf, int datanascimento, long matricula,
+                     String alergico, String cardiopata, String cidade, String curso) {
+        this.nome = nome;
+        this.idade = idade;
+        this.genero = genero;
+        this.cpf = cpf;
+        this.datanascimento = datanascimento;
+        this.matricula = matricula;
+        this.alergico = alergico;
+        this.cardiopata = cardiopata;
+        this.cidade = cidade;
+        this.curso = curso;
+    }
+    @Override
+    public String toString() {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append("Nome: ");
+        stringBuffer.append(this.nome);
+        stringBuffer.append(" ,Idade: ");
+        stringBuffer.append(this.idade);
+        stringBuffer.append(" ,Genero: ");
+        stringBuffer.append(this.genero);
+        stringBuffer.append(" ,Cpf: ");
+        stringBuffer.append(this.cpf);
+        stringBuffer.append(" ,data de nascimento: ");
+        stringBuffer.append(this.datanascimento);
+        stringBuffer.append(" ,matricula: ");
+        stringBuffer.append(this.matricula);
+        stringBuffer.append(" ,Alergia : ");
+        stringBuffer.append(this.alergico);
+        stringBuffer.append(" ,Cardiopatia: ");
+        stringBuffer.append(this.cardiopata);
+        stringBuffer.append(" ,Cidade: ");
+        stringBuffer.append(this.cidade);
+        stringBuffer.append(" ,Curso: ");
+        stringBuffer.append(this.curso);
 
-        int opcao;
-        do {
-            System.out.println("\n--- Menu do Sistema ---");
-            System.out.println("Para cadastrar um Estudante aperte: 1");
-            System.out.println("Para buscar por uma Matricula aperte: 2");
-            System.out.println("Para buscar por um Cpf aperte: 3");
-            System.out.println("Se deseja remover um estudante aperte: 4");
-            System.out.println("Se deseja ver a lista dos Estudantes cadastrados aperte: 5");
-            System.out.println("Se deseja sair e salvar do sistema aperte: 6");
-            System.out.println("Se deseja salvar os dados manualmente aperte: 7");
-            System.out.println("Se deseja carregar os dados manualmente aperte: 8");
-            System.out.println("Qual deseja escolher? ");
-            opcao = scanner.nextInt();
+        return stringBuffer.toString();
+    }
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
+    public int getIdade() { return idade; }
+    public void setIdade(int idade) {this.idade = idade; }
+    public char getGenero() {return genero; }
+    public void setGenero(char genero) { this.genero = genero; }
+    public String getCpf() { return cpf; }
+    public void setCpf(String cpf) { this.cpf = cpf;}
+    public int getDatanascimento() { return datanascimento;}
+    public void setDatanascimento(int datanascimento) { this.datanascimento = datanascimento; }
+    public long getMatricula() { return matricula; }
+    public void setMatricula(long matricula) { this.matricula = matricula; }
+    public String getAlergico() { return alergico;}
+    public void setAlergico(String alergico) { this.alergico = alergico; }
+    public String getCardiopata() { return cardiopata; }
+    public void setCardiopata(String cardiopata) { this.cardiopata = cardiopata; }
+    public String getCidade() { return cidade;}
+    public void setCidade(String cidade) { this.cidade = cidade;}
+    public String getCurso() { return curso; }
+    public void setCurso(String curso) { this.curso = curso; }
 
-            try {
-                switch (opcao) {
-                    case 1:
-                        scanner.nextLine();
-                        System.out.print("Digite o nome do estudante: ");
-                        String nome = scanner.nextLine();
-
-                        System.out.print("Digite a idade do Estudante: ");
-                        int idade = scanner.nextInt();
-                        scanner.nextLine();
-
-
-                        System.out.print("Digite o sexo do Estudante (M=Masculino/F=Feminino/N=Não Binario");
-                        char genero = scanner.nextLine().charAt(0);
-
-
-                        System.out.print("Digite o Cpf do Estudante: ");
-                        String cpf = scanner.nextLine();
-
-                        System.out.print("Digite a data de nascimento do Estudante (dia/mês/ano) :");
-                        int data = scanner.nextInt();
-                        scanner.nextLine();
-
-
-                        System.out.print("Digite a Matricula do Estudante: ");
-                        long matricula = scanner.nextLong();
-                        scanner.nextLine();
-
-                        System.out.print("Digite se o Estudante possui alergias: ");
-                        String alergico = scanner.nextLine();
-
-                        System.out.print("Digite se o Estudante possui Cardiopatia(Prolemas ou doenças do coração): ");
-                        String cardiopata = scanner.nextLine();
-
-                        System.out.print("Digite o nome da cidade do Estudante: ");
-                        String cidade = scanner.nextLine();
-
-                        System.out.print("Digite o curso do Estudante: ");
-                        String curso = scanner.nextLine();
-
-                        Estudante estudante = new Estudante(nome, idade, genero, cpf, data, matricula, alergico, cardiopata, cidade, curso);
-                        service.cadastrar(estudante);
-                        break;
-                    case 2:
-                        System.out.print("Digite a matricula correspondente: ");
-                        long mat = scanner.nextLong();
-                        System.out.println(service.buscarPorMatricula(mat));
-                        break;
-                    case 3:
-                        scanner.nextLine();
-                        System.out.print("Digite o CPF correspondente: ");
-                        String cpfBusca = scanner.nextLine();
-                        System.out.println(service.buscarPorCpf(cpfBusca));
-                        break;
-                    case 4:
-                        scanner.nextLine();
-                        System.out.print("Para remover o Estudante digite o CPF do mesmo: ");
-                        String cpfRemover = scanner.nextLine();
-                        if (service.remover(cpfRemover)) {
-                            System.out.println("O Estudante foi removido");
-                        }
-                        break;
-                    case 5:
-                        scanner.nextLine();
-                        service.listarTodos().forEach(System.out::println);
-                        break;
-                    case 6:
-                        scanner.nextLine();
-                        service.salvarDados();
-                        System.out.println("Salvando os dados e Saindo do sistema");
-                        break;
-                    case 7:
-                        scanner.nextLine();
-                        service.salvarDados();
-                        System.out.println("Os dados foram salvos manualmente");
-                        break;
-                    case 8:
-                        scanner.nextLine();
-                        service.carregarDados();
-                        System.out.println("Os dados foram carregados manualmente");
-                        break;
-                    default:
-                        System.out.println("Perdão mas o que você tentou executar foi invalido.");
-                }
-            } catch (AlunoInvalidoException e) {
-                System.out.println("Perdão ocorreu um erro: " + e.getMessage());
-            } catch (CpfInvalidoException | MatriculaInvalidaEception e) {
-                throw new RuntimeException(e);
-            }
-        } while (opcao != 6);
-        scanner.close();
+    public boolean equals(Estudante e) {
+        if ((e instanceof  Estudante) && ((Estudante) e).getNome().equals(this.getNome())) {
+            return true;
+        } else
+            return false;
+    }
+    public int hashCode() {
+        return getNome().length();
     }
 }
-
